@@ -1,4 +1,4 @@
-# myob
+# pay-slip-generator
 
 ## Project setup
 ```
