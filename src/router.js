@@ -5,6 +5,7 @@ import Login from './views/Login.vue';
 import PaySlipGenerator from './views/PaySlipGenerator.vue';
 import PreviewPaySlip from './views/PreviewPaySlip.vue';
 import store from './store/index';
+import * as actionTypes from '@/store/action-types';
 
 Vue.use(Router);
 
@@ -56,6 +57,9 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
   const authRequired = to.matched.some(routeRecord => routeRecord.meta.requiresAuth);
+  if (to.name === 'preview-pay-slip') {
+    store.dispatch(actionTypes.GET_EMPLOYEE_PAY_HISTORY);
+  }
   if (!currentUser && authRequired) {
     next('login');
   } else if (currentUser && !authRequired) {

@@ -15,6 +15,7 @@ const store = new Vuex.Store({
       lastName: null,
       annualSalary: null,
       superannuationRate: null,
+      history: [],
     },
     taxableIncomeRange: [
       {
@@ -53,6 +54,7 @@ const store = new Vuex.Store({
         description: '$54,232 plus 45c for each $1 over $180,000',
       },
     ],
+    errorMessages: [],
   },
   getters,
   mutations,

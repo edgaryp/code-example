@@ -12,13 +12,13 @@
             <div class="col-sm-6">
               <div class="input-group form-group">
                 <label for="first-name">Frist Name</label>
-                <input id="first-name" class="form-control" type="text"  v-validate="'required'" name="first-name" v-model="firstName">
+                <input id="first-name" class="form-control" type="text" v-validate="'required'" name="first-name" v-model="firstName">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group form-group">
                 <label for="last-name">Frist Name</label>
-                <input id="last-name" class="form-control" type="text"  v-validate="'required'" name="last-name" v-model="lastName">
+                <input id="last-name" class="form-control" type="text" v-validate="'required'" name="last-name" v-model="lastName">
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="annual-salary" class="form-control" type="text"  v-validate="'required|numeric|min_value:1'" name="annual-salary" v-model="annualSalary">
+                <input id="annual-salary" class="form-control" type="text" v-validate="'required|numeric|min_value:1'" name="annual-salary" v-model.number="annualSalary">
               </div>
             </div>
             <div class="col-sm-6">
@@ -38,7 +38,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">%</span>
                 </div>
-                <input id="superannuation-rate" class="form-control" type="text"  v-validate="'required|numeric|min_value:1'" name="superannuation-rate" v-model="superannuationRate">
+                <input id="superannuation-rate" class="form-control" type="text" v-validate="'required|numeric|min_value:1'" name="superannuation-rate" v-model="superannuationRate">
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default {
   label {
     width: 100%;
   }
-  .input-group-text {
+  .input-group-text, #first-name, #last-name {
     border-top-left-radius: 0.25rem !important;
     border-bottom-left-radius: 0.25rem !important;
   }

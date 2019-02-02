@@ -18,12 +18,14 @@ const getters = {
      * $180,001 and over -> $54,232 plus 45c for each $1 over $180,000
      */
     const { annualSalary } = state.employeeInfo;
-    const { base, min, multiplier, description } = state.taxableIncomeRange.filter(obj => annualSalary >= obj.min && annualSalary <= obj.max)[0];
-    if (min >= 0) {
-      return {
-        result: Math.round((base + (annualSalary - (min - 1)) * multiplier) / 12),
-        description,
-      };
+    if (typeof annualSalary === 'number') {
+      const { base, min, multiplier, description } = state.taxableIncomeRange.filter(obj => annualSalary >= obj.min && annualSalary <= obj.max)[0];
+      if (min >= 0) {
+        return {
+          result: Math.round((base + (annualSalary - (min - 1)) * multiplier) / 12),
+          description,
+        };
+      }
     }
     return 0;
   },
@@ -42,6 +44,9 @@ const getters = {
     return Math.round(getters.GROSS_INCOME * (state.employeeInfo.superannuationRate / 100));
   },
   [getterTypes.PAY](state, getters) {
+    /**
+     * Requirement doesn't specify the formular so used given example as reference
+     */
     return Math.round(getters.GROSS_INCOME - getters.SUPER);
   },
   [getterTypes.PAY_DATE]() {
@@ -54,7 +59,7 @@ const getters = {
   },
   [getterTypes.TABEL_DATA](state, getters) {
     const { firstName, lastName, annualSalary, superannuationRate } = state.employeeInfo;
-    if (firstName && lastName && annualSalary && superannuationRate) {
+    if (firstName && lastName && annualSalary && superannuationRate && typeof annualSalary === 'number') {
       return [
         {
           item: 'Employee',
@@ -104,6 +109,19 @@ const getters = {
       ];
     }
     return null;
+  },
+  [getterTypes.PAYSLIP_FOR_FIRESTORE](state, getters) {
+    return {
+      employee: `${state.employeeInfo.firstName} ${state.employeeInfo.lastName}`,
+      payDate: getters.PAY_DATE,
+      payFrequency: 'Monthly',
+      annualIncome: state.employeeInfo.annualSalary,
+      grossIncome: getters.GROSS_INCOME,
+      incomeTax: getters.INCOME_TAX.result,
+      netIncome: getters.NET_INCOME,
+      super: getters.SUPER,
+      pay: getters.PAY,
+    };
   },
 };
 

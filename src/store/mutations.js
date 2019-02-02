@@ -8,6 +8,9 @@ const mutations = {
   [mutationTypes.SET_USER_LOGIN_ERROR](state, errorMessage) {
     state.userLoginError = errorMessage;
   },
+  [mutationTypes.REMOVE_USER_LOGIN_ERROR](state) {
+    state.userLoginError = null;
+  },
   [mutationTypes.SET_EMPLOYEE_INFO](state, employeeInfo) {
     const property = employeeInfo[0];
     const value = employeeInfo[1];
@@ -33,6 +36,16 @@ const mutations = {
     state.employeeInfo.lastName = null;
     state.employeeInfo.annualSalary = null;
     state.employeeInfo.superannuationRate = null;
+  },
+  [mutationTypes.SET_EMPLOYEE_HISTORY](state, history) {
+    if (history) {
+      state.employeeInfo.history = [...history];
+    } else {
+      state.employeeInfo.history = [];
+    }
+  },
+  [mutationTypes.SET_ERROR_MESSAGE](state, error) {
+    state.errorMessages.push(error);
   },
 };
 

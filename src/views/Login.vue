@@ -1,7 +1,7 @@
 <template>
   <div class="login container">
     <SvgBase width="100%" height="50px" iconName="myob" viewBox="myob"><Myob /></SvgBase>
-    <h2 class="font-weight-normal mb-0 text-center">Sign in to Pay Slip Generator</h2>
+    <h2 class="font-weight-normal mb-0 text-center">Pay Slip Generator</h2>
     <LoginForm />
   </div>
 </template>

@@ -13,7 +13,13 @@ export default class Firebase {
   }
 
   static async userSignIn(loginDetails) {
-    return firebase.auth().signInWithEmailAndPassword(loginDetails.email, loginDetails.passowrd);
+    const { email, password } = loginDetails;
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
+
+  static async userSignUp(signupDetails) {
+    const { email, password } = signupDetails;
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
   static generateUserDetails(userDetails) {
@@ -23,5 +29,13 @@ export default class Firebase {
       creationTime: userDetails.metadata.creationTime,
       lastSignInTime: userDetails.metadata.lastSignInTime,
     };
+  }
+
+  static db() {
+    return firebase.firestore();
+  }
+
+  static collectionRef(collectionOne) {
+    return this.db().collection(collectionOne);
   }
 }
