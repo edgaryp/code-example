@@ -73,9 +73,6 @@ export default {
     @media (max-height: 1040px), (max-width: 767px) {
       position: relative;
     }
-    @media (min-height: 1200px) and (max-width: 767px) {
-      position: absolute;
-    }
   }
   &.pay-slip-generator {
     @media (max-height: 700px), (max-width: 600px) {

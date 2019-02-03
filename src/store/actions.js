@@ -42,7 +42,7 @@ const actions = {
   async [actionTypes.GET_EMPLOYEE_PAY_HISTORY]({ state, commit }) {
     try {
       const { firstName, lastName } = state.employeeInfo;
-      const promise = await Firebase.collectionRef('payslips').where('employee', '==', `${firstName} ${lastName}`).get();
+      const promise = await Firebase.collectionRef('payslips').where('Employee', '==', `${firstName} ${lastName}`).get();
       if (!promise.empty) {
         const history = [];
         promise.forEach((doc) => {

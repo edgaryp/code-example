@@ -2,10 +2,10 @@
 <div class="preview-pay-slip mt-5">
   <h3>Payslip Generator</h3>
   <div class="row">
-    <div :class="[employeeInfo.history.length ? 'col-md-7 col-lg-8' : 'col-12']">
+    <div :class="[employeeInfo.history.length ? 'col-md-12 col-lg-7' : 'col-12']">
       <Preview />
     </div>
-    <div class="col-md-5 col-lg-4" v-if="employeeInfo.history.length">
+    <div class="col-md-12 col-lg-5" v-if="employeeInfo.history.length">
       <History />
     </div>
   </div>

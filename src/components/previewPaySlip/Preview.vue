@@ -8,13 +8,13 @@
       <table class="table table-hover">
         <thead>
           <tr class="d-flex">
-            <th :class="[tableHeader === 'Item' ? 'col-md-6 col-lg-3' : 'col-md-6 col-lg-9' ]" v-for="tableHeader in tableHeaders" :key="tableHeader" scope="col">{{ tableHeader }}</th>
+            <th class="col-6" v-for="tableHeader in tableHeaders" :key="tableHeader" scope="col">{{ tableHeader }}</th>
           </tr>
         </thead>
         <tbody>
           <tr class="d-flex" v-for="(data, index) in tabelData" :key="index" v-b-tooltip.hover :title="data.description">
-            <td class="col-md-6 col-lg-3">{{ data.item }}</td>
-            <td class="col-md-6 col-lg-9">{{ data['Employee Details'] }}</td>
+            <td class="col-6">{{ data.item }}</td>
+            <td class="col-6">{{ data['Employee Details'] }}</td>
           </tr>
         </tbody>
       </table>
@@ -24,10 +24,8 @@
       </b-dropdown>
       <b-alert v-if="paid" show variant="success">
         <h4 class="alert-heading">Yay!</h4>
-        <p>Thank you reviewing my coding challenge.</p>
-        <p>I had fun and enjoyed every part of it, especially the calculation for the payslip. Love to see everything comes together and becoming a functional application, which is where I getting satisfactions from for being a front end developer.</p>
+        <p>Payslip is saved.</p>
         <hr>
-        <p>Regards,</p>
         <p class="mb-0">Eddie</p>
         <p class="mb-0"><a href="tel:0403356277">0403 356 277</a></p>
         <p class="mb-0"><a href="mailto:edgaryp@me.com">edgaryp@me.com</a></p>
@@ -75,7 +73,6 @@ export default {
     ...mapActions({
       userLogout: actionTypes.USER_LOGOUT,
       savePayslip: actionTypes.SAVE_PAYSLIP,
-      getEmployeePayHistory: actionTypes.GET_EMPLOYEE_PAY_HISTORY,
     }),
     pay() {
       this.savePayslip(this.payslipForFireStore);

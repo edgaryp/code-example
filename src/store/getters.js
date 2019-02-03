@@ -112,15 +112,15 @@ const getters = {
   },
   [getterTypes.PAYSLIP_FOR_FIRESTORE](state, getters) {
     return {
-      employee: `${state.employeeInfo.firstName} ${state.employeeInfo.lastName}`,
-      payDate: getters.PAY_DATE,
-      payFrequency: 'Monthly',
-      annualIncome: state.employeeInfo.annualSalary,
-      grossIncome: getters.GROSS_INCOME,
-      incomeTax: getters.INCOME_TAX.result,
-      netIncome: getters.NET_INCOME,
-      super: getters.SUPER,
-      pay: getters.PAY,
+      Employee: `${state.employeeInfo.firstName} ${state.employeeInfo.lastName}`,
+      'Pay Date': getters.PAY_DATE,
+      'Pay Frequency': 'Monthly',
+      'Annual Income': state.employeeInfo.annualSalary,
+      'Gross Income': getters.GROSS_INCOME,
+      'Income Tax': getters.INCOME_TAX.result,
+      'Net Income': getters.NET_INCOME,
+      Super: getters.SUPER,
+      Pay: getters.PAY,
     };
   },
 };
