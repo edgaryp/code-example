@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 export default class Firebase {
   static getConfig() {
     return {
-      apiKey: 'AIzaSyDk9aUrRU8SATe9VXmGmUaBF-pyiCFKq8s',
+      apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
       authDomain: 'pay-slip-generator.firebaseapp.com',
       databaseURL: 'https://pay-slip-generator.firebaseio.com',
       projectId: 'pay-slip-generator',

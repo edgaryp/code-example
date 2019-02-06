@@ -11,13 +11,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="input-group form-group">
-                <label for="first-name">Frist Name</label>
+                <label for="first-name">First Name</label>
                 <input id="first-name" class="form-control" type="text" v-validate="'required'" name="first-name" v-model="firstName">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group form-group">
-                <label for="last-name">Frist Name</label>
+                <label for="last-name">Last Name</label>
                 <input id="last-name" class="form-control" type="text" v-validate="'required'" name="last-name" v-model="lastName">
               </div>
             </div>
