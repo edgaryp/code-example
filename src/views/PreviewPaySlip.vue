@@ -13,9 +13,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import History from '@/components/previewPaySlip/History.vue';
 import Preview from '@/components/previewPaySlip/Preview.vue';
-import { mapState } from 'vuex';
 
 export default {
   name: 'preview-pay-slip',

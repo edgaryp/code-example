@@ -50,10 +50,10 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 import SvgBase from '@/components/SvgBase.vue';
 import User from '@/components/icons/User.vue';
 import * as mutationTypes from '@/store/mutation-types';
-import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'pay-slip-generator',

@@ -13,9 +13,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
-import { mapMutations } from 'vuex';
 import * as mutationTypes from '@/store/mutation-types';
 
 export default {

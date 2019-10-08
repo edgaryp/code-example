@@ -38,11 +38,11 @@
 </template>
 
 <script>
+import { mapGetters, mapActions, mapState } from 'vuex';
 import SvgBase from '@/components/SvgBase.vue';
 import User from '@/components/icons/User.vue';
 import * as actionTypes from '@/store/action-types';
 import * as getterTypes from '@/store/getter-types';
-import { mapGetters, mapActions, mapState } from 'vuex';
 
 
 export default {

@@ -20,10 +20,10 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import SvgBase from '@/components/SvgBase.vue';
 import Myob from '@/components/icons/Myob.vue';
 import * as actionTypes from '@/store/action-types';
-import { mapState, mapActions } from 'vuex';
 
 export default {
   components: {
